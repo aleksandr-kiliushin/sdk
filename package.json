@@ -36,11 +36,11 @@
       "import": "./dist/sdk.es.js"
     },
     "./base-configs/eslint-react": {
-      "types": "./base-configs/types/eslint.react.base.config.d.cts",
+      "types": "./base-configs/types/eslint.react.base.config.d.mts",
       "import": "./base-configs/eslint.react.base.config.mjs"
     },
     "./base-configs/prettier": {
-      "types": "./base-configs/types/prettier.base.config.d.cts",
+      "types": "./base-configs/types/prettier.base.config.d.mts",
       "import": "./base-configs/prettier.base.config.mjs"
     },
     "./base-configs/tsconfig-react": "./base-configs/tsconfig.react.base.json",
