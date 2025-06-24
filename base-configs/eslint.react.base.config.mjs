@@ -1,34 +1,36 @@
-const js = require("@eslint/js");
-const stylistic = require("@stylistic/eslint-plugin");
-const parser = require("@typescript-eslint/parser");
-const perfectionist = require("eslint-plugin-perfectionist");
-const prettier = require("eslint-plugin-prettier/recommended");
-const react = require("eslint-plugin-react");
-const reactDom = require("eslint-plugin-react-dom");
-const reactHooks = require("eslint-plugin-react-hooks");
-const reactRefresh = require("eslint-plugin-react-refresh");
-const reactX = require("eslint-plugin-react-x");
-const globals = require("globals");
-const tseslint = require("typescript-eslint");
+import js from "@eslint/js";
+import stylistic from "@stylistic/eslint-plugin";
+import parser from "@typescript-eslint/parser";
+import perfectionist from "eslint-plugin-perfectionist";
+import prettier from "eslint-plugin-prettier/recommended";
+import react from "eslint-plugin-react";
+import reactDom from "eslint-plugin-react-dom";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
+import reactX from "eslint-plugin-react-x";
+import globals from "globals";
+import tseslint from "typescript-eslint";
+
+/**
+ * @type {any}
+ */
+const tsEslintRecommended = tseslint.configs.recommended;
 
 /**
  * @type {import("@eslint/config-helpers").ConfigWithExtends}
  */
-const REACT_BASE_CONFIG = {
+export const REACT_BASE_CONFIG = {
   extends: [
     [
+      tsEslintRecommended,
       js.configs.recommended,
-      ...tseslint.configs.recommended,
       perfectionist.configs["recommended-natural"],
       react.configs.flat.recommended,
       react.configs.flat["jsx-runtime"],
       reactHooks.configs["recommended-latest"],
       reactRefresh.configs.recommended,
-      // @ts-expect-error Пробема с импортом, TS предлагает доп. вложенность: `reactDom.default.configs.recommended`.
       reactDom.configs.recommended,
-      // @ts-expect-error Пробема с импортом, TS предлагает доп. вложенность: `reactX.default.configs.recommended`.
       reactX.configs.recommended,
-      // @ts-expect-error Пробема с импортом, TS предлагает доп. вложенность: `stylistic.default.configs.recommended`.
       stylistic.configs.recommended,
       prettier,
     ],
@@ -58,7 +60,6 @@ const REACT_BASE_CONFIG = {
     ],
     "@typescript-eslint/no-empty-object-type": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-require-imports": "off",
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
@@ -128,5 +129,3 @@ const REACT_BASE_CONFIG = {
     },
   },
 };
-
-module.exports = { REACT_BASE_CONFIG };

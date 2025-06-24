@@ -8,7 +8,7 @@ const config = defineConfig({
       cssFileName: "sdk.css",
       entry: "./src/index.ts",
       fileName: (format) => `sdk.${format}.js`,
-      formats: ["es", "cjs"],
+      formats: ["es"],
     },
     rollupOptions: {
       external: ["classnames", "react", "react-dom", "react-router-dom", "react/jsx-runtime"],
@@ -17,7 +17,7 @@ const config = defineConfig({
   plugins: [
     react(),
     dts({
-      exclude: ["./eslint.config.cjs", "./prettier.config.cjs", "./vite.config.ts", "./base-configs"],
+      exclude: ["./eslint.config.mjs", "./prettier.config.mjs", "./vite.config.ts", "./base-configs"],
       insertTypesEntry: true,
     }),
   ],
