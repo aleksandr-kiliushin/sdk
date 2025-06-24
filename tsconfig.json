@@ -1,0 +1,9 @@
+{
+  "extends": "./base-configs/tsconfig.react.base.json",
+  "exclude": ["./dist", "./node_modules"],
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
