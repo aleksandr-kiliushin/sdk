@@ -11,7 +11,7 @@ const config = defineConfig({
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["classnames", "react", "react-dom", "react-router-dom", "react/jsx-runtime"],
+      external: [/node_modules/],
     },
   },
   plugins: [
